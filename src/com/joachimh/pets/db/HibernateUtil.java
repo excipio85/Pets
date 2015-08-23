@@ -1,5 +1,7 @@
 package com.joachimh.pets.db;
 
+import com.joachimh.pets.entity.Continent;
+import com.joachimh.pets.entity.Country;
 import com.joachimh.pets.entity.Person;
 import com.joachimh.pets.entity.Pet;
 import org.hibernate.Session;
@@ -56,6 +58,8 @@ public class HibernateUtil {
         Configuration cfg = new Configuration();
         cfg.addAnnotatedClass(Person.class);
         cfg.addAnnotatedClass(Pet.class);
+        cfg.addAnnotatedClass(Continent.class);
+        cfg.addAnnotatedClass(Country.class);
         cfg.setProperty("hibernate.connection.driver_class", "com.microsoft.sqlserver.jdbc.SQLServerDriver");
         cfg.setProperty("hibernate.connection.url", "jdbc:sqlserver://nbj:1434;databaseName=Pets;instanceName=SQLEXPRESS;integratedSecurity=true;");
         //cfg.setProperty("hibernate.connection.username", "web614");

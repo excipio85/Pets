@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1017929435">
+  <component name="DataSourceManagerImpl" format="xml" hash="1270297525">
     <data-source source="LOCAL" name="PetsDB" uuid="bfe5d149-6515-440b-baff-6480a507adb5">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>

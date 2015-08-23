@@ -1,8 +1,8 @@
 package com.joachimh.pets;
 
-import com.joachimh.pets.entity.Person;
+import com.joachimh.pets.dao.ContinentDAOImpl;
+import com.joachimh.pets.entity.Continent;
 import com.joachimh.pets.entity.PersonController;
-import com.joachimh.pets.entity.Pet;
 import com.joachimh.pets.entity.PetController;
 import com.joachimh.pets.ui.BasicOverviewController;
 import com.joachimh.pets.ui.RootLayoutController;
@@ -39,17 +39,18 @@ public class MainApp extends Application {
         initRootLayout();
         showBasicOverview();
 
-        ObservableList<Person> personList = FXCollections.observableArrayList();
-        ObservableList<Pet> petList = FXCollections.observableArrayList(petController.getPetList());
-
-        personList = personController.getListPerson();
-
-        personList.forEach(person -> {
-            System.out.println(person.getFirstname());
-            System.out.println("----");
-            person.getPets().forEach(pet -> System.out.println(pet.getName()));
+        ContinentDAOImpl continentDAO = new ContinentDAOImpl();
+        ObservableList<Continent> allContinents = FXCollections.observableArrayList(continentDAO.getContinentList());
+        allContinents.forEach(continent -> {
+            System.out.println(continent.getName());
+            continent.getCountries().forEach(country -> {
+                System.out.println("\t" + country.getName());
+            });
         });
 
+
+
+        System.exit(0);
 
     }
     //endregion

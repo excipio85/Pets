@@ -321,13 +321,27 @@
       <column name="TABLE_SCHEMA" sqlType="nvarchar" precision="128" scale="0" nullable="true" jdbcType="-9"/>
       <column name="TABLE_NAME" sqlType="sysname" precision="128" scale="0" nullable="false" jdbcType="-9"/>
     </table>
+    <table name="CONTINENT" schema="dbo" catalog="Pets" type="TABLE">
+      <column name="CONT_ID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CONT_NAME" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK__CONTINEN__33DC4C79EDDEE2D9" columns="CONT_ID"/>
+      <exported-key name="FK_qvmjax77fxggpuyi2hm8v9c8t" table="COUNTRY" schema="dbo" catalog="Pets" columns="CONT_ID"/>
+    </table>
+    <table name="COUNTRY" schema="dbo" catalog="Pets" type="TABLE">
+      <column name="CTRY_ID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="area" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="CTRY_NAME" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CONT_ID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__COUNTRY__EA79A657C513114C" columns="CTRY_ID"/>
+      <foreign-key name="FK_qvmjax77fxggpuyi2hm8v9c8t" columns="CONT_ID" ref-table="CONTINENT" ref-schema="dbo" ref-catalog="Pets" ref-columns="CONT_ID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
     <table name="Person" schema="dbo" catalog="Pets" type="TABLE">
       <column name="PersonID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="DateOfBirth" sqlType="varbinary" precision="255" scale="0" nullable="true" jdbcType="-3"/>
       <column name="Email" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="Firstname" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="Lastname" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PK__Person__AA2FFB851F250DAB" columns="PersonID"/>
+      <primary-key name="PK__Person__AA2FFB857ECA7557" columns="PersonID"/>
       <exported-key name="FK_klw7nfw1bnjlepff0nmw0300k" table="Person_Pet" schema="dbo" catalog="Pets" columns="Person_PersonID"/>
       <exported-key name="FK_n7ovfv6aqgjl89t8rtyoihuf0" table="Pet" schema="dbo" catalog="Pets" columns="PersonID"/>
       <index name="UK_1lc7udnhplrv06mhwtq7cldfh" unique="true" columns="Email"/>
@@ -342,9 +356,9 @@
     <table name="Pet" schema="dbo" catalog="Pets" type="TABLE">
       <column name="PetID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="Name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="PetType" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="PetType" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="PersonID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PK__Pet__48E5380207DFC495" columns="PetID"/>
+      <primary-key name="PK__Pet__48E538023D1C3EC8" columns="PetID"/>
       <foreign-key name="FK_n7ovfv6aqgjl89t8rtyoihuf0" columns="PersonID" ref-table="Person" ref-schema="dbo" ref-catalog="Pets" ref-columns="PersonID" update-rule="1" delete-rule="1" deferrability="2"/>
       <exported-key name="FK_s913n5hdkw3gspv62p0ensvna" table="Person_Pet" schema="dbo" catalog="Pets" columns="pets_PetID"/>
       <index name="UK_meqyal705qi7yjdc1kojmog5h" unique="true" columns="Name"/>
