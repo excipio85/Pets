@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1017929435">
+    <data-source source="LOCAL" name="PetsDB" uuid="bfe5d149-6515-440b-baff-6480a507adb5">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://nbj:1434;databaseName=Pets;instanceName=SQLEXPRESS;integratedSecurity=true</jdbc-url>
+      <driver-properties>
+        <property name="databaseName" value="haustierverwaltung" />
+        <property name="portNumber" value="1434" />
+        <property name="integratedSecurity" value="true" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+  </component>
+</project>
